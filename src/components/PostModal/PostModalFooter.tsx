@@ -18,6 +18,8 @@ const PostModalFooter: FC<PostModalFooterProps> = ({ handleSendComment }) => {
 
     const handleSend = () => {
         handleSendComment(comment)
+
+        // Reset input field when saved the comment
         setComment('')
     }
 

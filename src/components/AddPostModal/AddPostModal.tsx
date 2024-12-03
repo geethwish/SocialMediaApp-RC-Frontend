@@ -1,6 +1,6 @@
 import { Button, Form, Input, Modal, Segmented } from 'antd'
 import TextArea from 'antd/es/input/TextArea';
-import React, { FC, memo, useEffect } from 'react'
+import { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
 import { addPost, resetCreatePostState } from '../../store/slices/posts/createPost.slice';
@@ -14,6 +14,7 @@ interface AddPostModalPros {
 const AddPostModal: FC<AddPostModalPros> = ({ isModalOpen, handleCancel }) => {
     const [form] = Form.useForm();
     const dispatch = useDispatch<AppDispatch>();
+
     const status = useSelector((state: RootState) => state.cratePost.status);
 
     const onFinish = async () => {
@@ -25,6 +26,7 @@ const AddPostModal: FC<AddPostModalPros> = ({ isModalOpen, handleCancel }) => {
             handleCancel()
 
         } catch (errorInfo) {
+
             console.log('Failed:', errorInfo);
         }
 

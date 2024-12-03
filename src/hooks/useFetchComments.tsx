@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getCommentsByPostId } from '../services/api';
 import { Comment } from '../types';
+import { CustomAlert } from '../util/alertHandler';
 
 
 export const useFetchComments = (postId: string) => {
@@ -18,16 +19,19 @@ export const useFetchComments = (postId: string) => {
             const reverseData = result.reverse();
             setComments(reverseData);
         } catch (err) {
-            setError('Failed to fetch comments. Please try again.');
+            CustomAlert('Failed to fetch comments. Please try again.', 'error');
             throw err
         } finally {
             setIsLoading(false);
         }
     };
 
+    // Refresh comments
     const refresh = () => {
         getComments();
     }
+
+    // Fetch comments on component mount
     useEffect(() => {
         getComments();
     }, [dispatch, postId]);
