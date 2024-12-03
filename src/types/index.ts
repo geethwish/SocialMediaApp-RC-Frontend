@@ -17,3 +17,5 @@ export interface Comment {
   };
   createdAt: Date;
 }
+
+export type ApiStatus = "idle" | "loading" | "succeeded" | "failed";
