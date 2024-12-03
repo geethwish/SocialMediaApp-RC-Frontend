@@ -1,50 +1,103 @@
-# React + TypeScript + Vite
+# SocialMediaApp-RC-Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Table of Contents
 
-Currently, two official plugins are available:
+- [Introduction](#introduction)
+- [Folder Structure](#folder-structure)
+- [Project Setup](#project-setup)
+- [Used Libraries](#used-libraries)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Introduction
 
-## Expanding the ESLint configuration
+This is the frontend repository for the SocialMediaApp-RC project. It is built using modern web technologies to provide a seamless user experience.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Folder Structure
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+SocialMediaApp-RC-Frontend/
+├── public/
+│   ├── index.html
+│   └── ...
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── pages/
+│   ├── services/
+│   ├── App.js
+│   ├── index.js
+│   └── ...
+├── .gitignore
+├── package.json
+├── README.md
+└── ...
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+- `public/`: Contains the static files such as `index.html`.
+- `src/`: Contains the source code of the application.
+  - `assets/`: Contains images, fonts, and other static assets.
+  - `components/`: Contains reusable React components.
+  - `pages/`: Contains React components that represent different pages.
+  - `services/`: Contains API service calls and other utility functions.
+- `.gitignore`: Specifies files to be ignored by Git.
+- `package.json`: Contains project metadata and dependencies.
+- `README.md`: The readme file you are currently reading.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+## Project Setup
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+To set up the project locally, follow these steps:
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/yourusername/SocialMediaApp-RC-Frontend.git
+   cd SocialMediaApp-RC-Frontend
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+## Used Libraries
+
+- **React**: A JavaScript library for building user interfaces.
+- **Redux**: A predictable state container for JavaScript apps.
+- **Redux Toolkit**: Redux State handle by using redux toolkit.
+- **Ant Design**: This app has use Ant Design component library for create UI.
+- **React Router**: A collection of navigational components for React applications.
+- **Axios**: A promise-based HTTP client for making API requests.
+- **Jest**: A delightful JavaScript testing framework with a focus on simplicity.
+- **ESLint**: A tool for identifying and reporting on patterns found in ECMAScript/JavaScript code.
+- **Prettier**: An opinionated code formatter.
+
+## Version Guide
+
+To ensure compatibility and avoid potential issues, it is recommended to use the following versions:
+
+- **Node.js**: v18.x or higher
+- **npm**: v6.x or higher
+- **React**: v18.x or higher
+- **Redux**: v4.x or higher
+- **Redux Toolkit**: v1.x or higher
+- **Ant Design**: v5.x or higher
+- **React Router**: v5.x or higher
+- **Axios**: v0.21.x or higher
+- **Jest**: v26.x or higher
+- **ESLint**: v7.x or higher
+- **Prettier**: v2.x or higher
+
+Make sure to check the `package.json` file for the exact versions used in this project.
+
+For a complete list of dependencies, refer to the `package.json` file.
