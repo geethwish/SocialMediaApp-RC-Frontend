@@ -112,3 +112,9 @@ To ensure compatibility and avoid potential issues, it is recommended to use the
 Make sure to check the `package.json` file for the exact versions used in this project.
 
 For a complete list of dependencies, refer to the `package.json` file.
+
+## Demo and Screenshots
+
+To access the demo and screenshots of the application, visit the following link:
+
+[Demo and Screenshots](https://drive.google.com/drive/folders/1EiUml9cJU2qsMP6u4Hh-ZB0ViWMlTpfS?usp=drive_link)
