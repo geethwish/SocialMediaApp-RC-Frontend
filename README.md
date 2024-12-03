@@ -53,19 +53,29 @@ To set up the project locally, follow these steps:
    cd SocialMediaApp-RC-Frontend
    ```
 
-2. **Install dependencies:**
+2. **Add environment variables:**
+
+   Create a `.env` file in the root directory of the project and add the necessary environment variables. For example:
+
+   ```plaintext
+   VITE_API_ENDPOINT=http://localhost:3001/api/
+   ```
+
+   Make sure to replace the placeholder values with your actual API URL and API key.
+
+3. **Install dependencies:**
 
    ```bash
    npm install
    ```
 
-3. **Start the development server:**
+4. **Start the development server:**
 
    ```bash
    npm run dev
    ```
 
-4. **Build for production:**
+5. **Build for production:**
    ```bash
    npm run build
    ```
@@ -97,6 +107,7 @@ To ensure compatibility and avoid potential issues, it is recommended to use the
 - **Jest**: v26.x or higher
 - **ESLint**: v7.x or higher
 - **Prettier**: v2.x or higher
+- **TypeScript**: v4.x or higher
 
 Make sure to check the `package.json` file for the exact versions used in this project.
 
