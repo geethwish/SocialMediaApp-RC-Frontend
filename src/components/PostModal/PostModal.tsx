@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useEffect } from 'react'
 import AddPostModalHeader from '../AddPostModal/AddPostModalHeader';
 import { Post } from '../../types';
 import PostCard from '../PostCard/PostCard';
@@ -9,6 +9,7 @@ import { createComment } from '../../services/api';
 
 import styles from './PostModal.module.scss'
 import { Modal } from 'antd';
+import { CustomAlert } from '../../util/alertHandler';
 
 interface PostModalPros {
     isModalOpen: boolean;
@@ -18,7 +19,7 @@ interface PostModalPros {
 
 const PostModal: FC<PostModalPros> = ({ isModalOpen, handleCancel, post }) => {
     // Use a custom hook for fetching comments
-    const { isLoading, comments, errorF, refresh } = useFetchComments(post.id)
+    const { isLoading, comments, error, refresh } = useFetchComments(post.id)
 
     const handleSendComment = async (comment: string) => {
 
@@ -33,10 +34,19 @@ const PostModal: FC<PostModalPros> = ({ isModalOpen, handleCancel, post }) => {
             }
 
         } catch (error) {
+            CustomAlert('Failed to send comment', 'error')
             console.log(error)
         }
-
     }
+
+    // Show error message if there is an error
+    useEffect(() => {
+        if (error !== null) {
+            return CustomAlert(error, 'error')
+        }
+
+    }, [error])
+
     return (
         <Modal
             title={<AddPostModalHeader />}

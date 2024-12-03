@@ -10,6 +10,7 @@ import AddPostModal from "../../components/AddPostModal/AddPostModal";
 import PostModal from "../../components/PostModal/PostModal";
 import { Post } from "../../types";
 import { resetCreatePostState } from "../../store/slices/posts/createPost.slice";
+import { CustomAlert } from "../../util/alertHandler";
 
 const Home = () => {
     const dispatch = useDispatch<AppDispatch>();
@@ -48,6 +49,7 @@ const Home = () => {
     // Fetch posts after creating a post
     useEffect(() => {
         if (PostCardStatus === 'succeeded') {
+            CustomAlert('Post added successfully', 'success')
             dispatch(fetchPosts());
             dispatch(resetCreatePostState());
         }

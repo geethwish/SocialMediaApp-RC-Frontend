@@ -1,16 +1,13 @@
 import api from "./axiosInterceptor";
 import { Post, Comment } from "../types";
 
+// Get all posts
 export const getPosts = async (): Promise<Post[]> => {
   const response = await api.get("posts");
   return response.data;
 };
 
-export const getPostById = async (id: string): Promise<Post> => {
-  const response = await api.get(`/posts/${id}`);
-  return response.data;
-};
-
+// Create a new post
 export const createPost = async (
   post: Omit<Post, "id" | "createdAt">
 ): Promise<Post> => {
@@ -18,6 +15,7 @@ export const createPost = async (
   return response.data;
 };
 
+// Update a post
 export const getCommentsByPostId = async (
   postId: string
 ): Promise<Comment[]> => {
@@ -29,6 +27,7 @@ export const getCommentsByPostId = async (
   }
 };
 
+// Crate a new comment
 export const createComment = async (
   comment: Omit<Comment, "id" | "createdAt">
 ): Promise<Comment> => {

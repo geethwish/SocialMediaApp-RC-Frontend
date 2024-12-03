@@ -4,6 +4,7 @@ import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import { Layout } from 'antd'
 import Navbar from './components/navbar/Navbar'
 import AppFooter from './components/footer/Footer'
+import 'sweetalert2/src/sweetalert2.scss'
 
 import './assets/styles/index.scss'
 const { Content, Header, Footer } = Layout;

@@ -1,4 +1,5 @@
 import axios from "axios";
+import { CustomAlert } from "../util/alertHandler";
 
 // Get api endpoint from environment variables and set default value
 const apiEndpoint =
@@ -32,22 +33,21 @@ api.interceptors.response.use(
       // Handle specific error status codes
       switch (error.response.status) {
         case 400:
-          console.error("Bad Request");
+          CustomAlert("Bad Request", "error");
           break;
         case 401:
-          console.error("Unauthorized");
-          // Redirect to login page or refresh token
+          CustomAlert("Unauthorized", "error");
           break;
         case 404:
-          console.error("Not Found");
+          CustomAlert("Not Found", "error");
           break;
         default:
-          console.error("An error occurred");
+          CustomAlert("An error occurred", "error");
       }
     } else if (error.request) {
-      console.error("No response received");
+      CustomAlert("No response received", "error");
     } else {
-      console.error("Error setting up request");
+      CustomAlert("Error setting up request", "error");
     }
     return Promise.reject(error);
   }
