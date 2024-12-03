@@ -1,14 +1,16 @@
-import { Card } from "antd"
+import { Button, Card } from "antd"
 import styles from './PostCard.module.scss'
 import PostCardHeader from "./PostCardHeader"
 import { PostCardHeaderProps } from "../../types"
 import { FC } from "react"
+import { AiFillLike } from "react-icons/ai"
+import { FaComment } from "react-icons/fa"
 
-const PostCard: FC<PostCardHeaderProps> = ({ post }) => {
+const PostCard: FC<PostCardHeaderProps> = ({ post, showComments, mode = "post" }) => {
     return (
         <Card
             className={styles.card}
-            title={<PostCardHeader />}
+            title={<PostCardHeader mode={mode} />}
             bordered={false}
 
         >
@@ -17,7 +19,13 @@ const PostCard: FC<PostCardHeaderProps> = ({ post }) => {
             </h1>
             <p>{post.description ?? ''}</p>
 
-            <hr />
+            <div className={styles.separator} />
+
+
+            <div className={styles.action}>
+                <Button type="text"><AiFillLike size={24} /></Button>
+                <Button type="text" onClick={() => showComments(post)}><FaComment size={24} /></Button>
+            </div>
         </Card>
     )
 }

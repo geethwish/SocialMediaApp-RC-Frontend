@@ -21,8 +21,12 @@ export const createPost = async (
 export const getCommentsByPostId = async (
   postId: string
 ): Promise<Comment[]> => {
-  const response = await api.get(`/comments/post/${postId}`);
-  return response.data;
+  try {
+    const response = await api.get(`/comments/post/${postId}`);
+    return response.data;
+  } catch {
+    throw new Error("Failed to fetch comments. Please try again.");
+  }
 };
 
 export const createComment = async (

@@ -1,0 +1,17 @@
+.commentInputSection {
+    display: flex;
+    border-top: 2px solid #F0F2F5;
+    padding-top: 1rem;
+    gap: 1rem;
+    align-items: center;
+
+    Textarea {
+        border: none;
+        background-color: #F0F2F5;
+    }
+}
+
+.ScrollableContainer {
+    max-height: 60vh;
+    overflow: auto;
+}

@@ -1,5 +1,5 @@
 export interface Post {
-  id?: string;
+  id: string;
   title: string;
   description: string;
   titleColor: string;
@@ -7,7 +7,7 @@ export interface Post {
 }
 
 export interface Comment {
-  id?: string;
+  id: string;
   postId: string;
   content: string;
   user?: {
@@ -20,6 +20,13 @@ export interface Comment {
 
 export type ApiStatus = "idle" | "loading" | "succeeded" | "failed";
 
+export type PostCardMode = "post" | "comment";
 export interface PostCardHeaderProps {
   post: Post;
+  showComments: (post: Post) => void;
+  mode?: PostCardMode;
+}
+
+export interface CommentCardProps {
+  comment: Comment;
 }

@@ -4,8 +4,11 @@ import { FaGlobe } from 'react-icons/fa'
 import styles from './PostCard.module.scss'
 import { IoClose } from 'react-icons/io5'
 import { HiDotsHorizontal } from 'react-icons/hi'
+import { PostCardMode } from '../../types'
+import { FC } from 'react'
 
-const PostCardHeader = () => {
+
+const PostCardHeader: FC<{ mode: PostCardMode }> = ({ mode = "post" }) => {
     return (
         <div className={styles.postCardWrapper}>
             <div className={styles.postCardHeader}>
@@ -21,14 +24,14 @@ const PostCardHeader = () => {
                 </h4>
             </div>
 
-            <div className={styles.action}>
+            {mode === 'post' && <div className={styles.action}>
                 <Button type="link" size={"large"}>
                     <HiDotsHorizontal />
                 </Button>
                 <Button type="link" size={"large"}>
                     <IoClose />
                 </Button>
-            </div>
+            </div>}
         </div>
 
     )

@@ -1,15 +1,16 @@
 import { Button, Form, Input, Modal, Segmented } from 'antd'
 import TextArea from 'antd/es/input/TextArea';
-import React, { FC } from 'react'
+import React, { FC, memo, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { AppDispatch, RootState } from '../../store';
-import { addPost } from '../../store/slices/posts/createPost.slice';
+import { addPost, resetCreatePostState } from '../../store/slices/posts/createPost.slice';
 
 interface AddPostModalPros {
     isModalOpen: boolean;
     handleOk: () => void;
     handleCancel: () => void;
 }
+
 const AddPostModal: FC<AddPostModalPros> = ({ isModalOpen, handleCancel }) => {
     const [form] = Form.useForm();
     const dispatch = useDispatch<AppDispatch>();
@@ -29,7 +30,10 @@ const AddPostModal: FC<AddPostModalPros> = ({ isModalOpen, handleCancel }) => {
 
     }
 
-    console.log(status);
+    useEffect(() => {
+        dispatch(resetCreatePostState());
+    }, [])
+
 
     return (
         <Modal title="Add Post" open={isModalOpen} onOk={onFinish} onCancel={handleCancel} footer={<Button loading={status === 'loading'} onClick={onFinish} type="primary" htmlType="submit">
@@ -124,4 +128,4 @@ const AddPostModal: FC<AddPostModalPros> = ({ isModalOpen, handleCancel }) => {
     )
 }
 
-export default AddPostModal
+export default memo(AddPostModal)
