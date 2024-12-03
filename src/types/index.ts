@@ -19,3 +19,7 @@ export interface Comment {
 }
 
 export type ApiStatus = "idle" | "loading" | "succeeded" | "failed";
+
+export interface PostCardHeaderProps {
+  post: Post;
+}

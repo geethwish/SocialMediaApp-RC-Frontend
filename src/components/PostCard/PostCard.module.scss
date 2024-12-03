@@ -1,0 +1,32 @@
+.card {
+    width: 100%;
+    max-width: 640px;
+
+}
+
+.postCardHeader {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lastOnline {
+    font-size: 0.8rem;
+    display: flex;
+    gap: 0.5rem;
+}
+
+.postCardWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.action {
+
+    svg {
+        color: black;
+    }
+}
